@@ -86,56 +86,91 @@ export default function Home() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.8}>
-            <Link to="/vision" style={{ textDecoration: 'none' }}>
+            <Link to="/about" style={{ textDecoration: 'none' }}>
               <MagneticButton>
-                Explore The Vision <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+                Read The Story <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
               </MagneticButton>
             </Link>
           </AnimatedSection>
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--bg-primary)' }}>
-        <div className="container">
-          <div className="grid-cols-2" style={{ alignItems: 'center' }}>
+      <section className="section" style={{ background: 'var(--text-primary)', color: 'var(--bg-primary)', position: 'relative', overflow: 'hidden' }}>
+        {/* Abstract background shapes */}
+        <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '50vw', height: '50vw', background: 'var(--accent-purple)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.15, zIndex: 0 }} />
+        <div style={{ position: 'absolute', bottom: '-20%', left: '-10%', width: '50vw', height: '50vw', background: 'var(--accent-blue)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.15, zIndex: 0 }} />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="grid-cols-2" style={{ alignItems: 'center', gap: '6rem' }}>
             <AnimatedSection>
-              <h2 className="text-h2" style={{ marginBottom: '2rem' }}>
+              <h2 className="text-h2" style={{ marginBottom: '2.5rem', color: 'var(--bg-primary)' }}>
                 Why We Exist<br/>Before We Begin.
               </h2>
-              <p className="text-body-lg" style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+              <div style={{ width: '40px', height: '2px', background: 'var(--accent-blue-text)', marginBottom: '2.5rem' }} />
+              <p className="text-body-lg" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
                 We believe that true impact requires deep preparation. The Missing Luna is currently in its foundational phase, gathering the brightest minds and kindest hearts.
               </p>
-              <p className="text-body-lg" style={{ color: 'var(--text-secondary)' }}>
+              <p className="text-body-lg" style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8 }}>
                 Our focus areas will span across education, healthcare, and animal welfare, rooted deeply in the spirit of India.
               </p>
             </AnimatedSection>
             
-            <AnimatedSection delay={0.3} style={{ position: 'relative' }}>
-              <div style={{
-                position: 'absolute',
-                inset: '-20px',
-                background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-blue))',
-                filter: 'blur(40px)',
-                opacity: 0.5,
-                zIndex: 0,
-                borderRadius: '50%'
-              }} />
-              <div className="glass-panel" style={{ 
-                padding: 'clamp(2rem, 6vw, 4rem)', 
-                position: 'relative', 
-                zIndex: 1, 
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                aspectRatio: '1'
-              }}>
-                <h3 className="text-h3" style={{ marginBottom: '1rem' }}>Zero Fake Numbers.</h3>
-                <p style={{ color: 'var(--text-secondary)' }}>
-                  You won't find any donation trackers or fabricated impact metrics here. 
-                  We communicate purely what we aspire to achieve.
-                </p>
-              </div>
+            <AnimatedSection delay={0.3}>
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                style={{ position: 'relative' }}
+              >
+                {/* Glowing Aura Behind Card */}
+                <div style={{
+                  position: 'absolute',
+                  inset: '-4px',
+                  background: 'linear-gradient(135deg, var(--accent-purple-text), var(--accent-blue-text))',
+                  filter: 'blur(25px)',
+                  opacity: 0.8,
+                  zIndex: 0,
+                  borderRadius: '32px'
+                }} />
+                
+                {/* Dark Glass Card */}
+                <div style={{ 
+                  background: 'rgba(15, 23, 42, 0.7)',
+                  backdropFilter: 'blur(40px)',
+                  WebkitBackdropFilter: 'blur(40px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '32px',
+                  padding: 'clamp(3rem, 5vw, 5rem)', 
+                  position: 'relative', 
+                  zIndex: 1, 
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                }}>
+                  <div style={{ 
+                    width: '64px', 
+                    height: '64px', 
+                    background: 'linear-gradient(135deg, var(--accent-purple), var(--accent-blue))',
+                    borderRadius: '50%',
+                    margin: '0 auto 2rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--text-primary)',
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    boxShadow: '0 0 30px rgba(224, 242, 254, 0.5)'
+                  }}>
+                    0
+                  </div>
+                  <h3 className="text-h2" style={{ marginBottom: '1.5rem', color: 'var(--bg-primary)' }}>Zero Fake Numbers.</h3>
+                  <p className="text-body-lg" style={{ color: 'rgba(255,255,255,0.6)', lineHeight: 1.8 }}>
+                    You won't find any donation trackers or fabricated impact metrics here. 
+                    We communicate purely what we aspire to achieve.
+                  </p>
+                </div>
+              </motion.div>
             </AnimatedSection>
           </div>
         </div>
